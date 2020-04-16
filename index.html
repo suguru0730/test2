@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | WebGL JS Call Sample</title>
     <script src="Build/UnityLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script>
     <script>
       UnityLoader.instantiate("unityContainer", "Build/test3.json");
     </script>
@@ -17,47 +18,62 @@
       ///////////////////////////////////////////////////////////
 
       var cont = document.getElementById('unityContainer');
-      var audioElem　= new Audio();　//音楽
-      var audioElem2　= new Audio();　//音楽
+      //var audioElem　= new Audio();　//音楽
+      //var audioElem2　= new Audio();　//音楽
 
-      cont.addEventListener( 'touchstart', function() {
+      var sound = new Howl({ src: ['pickup.wav'] });
+      var sound2 = new Howl({
+        src: ['test.wav'],
+        //autoplay: true,
+        //loop: true,
+        volume: 0.0,
+        onend: () => { // 再生完了時のendイベント
+        console.log('Finished!');
+         }
+        });
+
+      
+
+      cont.addEventListener( 'mousedown', function() {
       console.log("タッチしました");
+
+      sound.play();
+      //sound2.play();
+
+      /*
       audioElem2.src = "pickup.wav";
       audioElem2.loop = false;
       audioElem2.play();
+      */
+
       }, false );
 
-      /*
-
-      window.onload = function() {
-
-      var result = confirm('ログインしますか？');
- 
-      if( result ) {
- 
-      console.log('ログインします');
-      audioElem.src = "test2.mp3";
-      audioElem.loop = true;
-      audioElem.play();
- 
-      }else {
- 
-      console.log('ログインしません');
- 
-      }
-
-      };
-
-      */
+      
 
       //////////////////////////////////////////////////////////
 
       function MyFunction1(arg) {
 
         console.log(arg);
+
+        sound2.stop();
+        sound2 = new Howl({
+        src: ['test.wav'],
+        //autoplay: true,
+        loop: true,
+        volume: 0.5,
+        onend: () => { // 再生完了時のendイベント
+        console.log('1111_Finished!');
+         }
+        });
+
+        sound2.play();
+
+        /*
         audioElem.src = "test.wav";
         audioElem.loop = true;
         audioElem.play();
+        */
 
 	    }
 
@@ -66,7 +82,9 @@
        function MyFunction2(arg) {
 
         console.log(arg);
-        audioElem.pause();
+
+        sound2.stop();
+        //audioElem.pause();
 
 	    }
 
@@ -75,9 +93,25 @@
       function MyFunction3(arg) {　
 
         console.log(arg);
+
+        sound2.stop();
+        sound2 = new Howl({
+        src: ['test2.mp3'],
+        //autoplay: true,
+        loop: true,
+        volume: 0.5,
+        onend: () => { // 再生完了時のendイベント
+        console.log('2222_Finished!');
+         }
+        });
+
+        sound2.play();
+
+        /*
         audioElem.src = "test2.mp3";
         audioElem.loop = true;
         audioElem.play();
+        */
 
 	    }
 
