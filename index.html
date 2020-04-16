@@ -7,11 +7,48 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
       UnityLoader.instantiate("unityContainer", "Build/test3.json");
+    </script>
+  </head>
+  <body>
+    <div id="unityContainer" style="width: 100vw; height: 100vh;"></div>
 
+    <script>
+    
       ///////////////////////////////////////////////////////////
 
       var cont = document.getElementById('unityContainer');
       var audioElem　= new Audio();　//音楽
+      var audioElem2　= new Audio();　//音楽
+
+      cont.addEventListener( 'mousedown', function() {
+      console.log("タッチしました");
+      audioElem2.src = "pickup.wav";
+      audioElem2.loop = false;
+      audioElem2.play();
+      }, false );
+
+      /*
+
+      window.onload = function() {
+
+      var result = confirm('ログインしますか？');
+ 
+      if( result ) {
+ 
+      console.log('ログインします');
+      audioElem.src = "test2.mp3";
+      audioElem.loop = true;
+      audioElem.play();
+ 
+      }else {
+ 
+      console.log('ログインしません');
+ 
+      }
+
+      };
+
+      */
 
       //////////////////////////////////////////////////////////
 
@@ -46,10 +83,6 @@
 
       ///////////////////////////////////////////////////////////
 
-
     </script>
-  </head>
-  <body>
-    <div id="unityContainer" style="width: 100vw; height: 100vh;"></div>
   </body>
 </html>
