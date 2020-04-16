@@ -20,9 +20,38 @@
       var audioElem　= new Audio();　//音楽
       var audioElem2　= new Audio();　//音楽
 
+      var i = 0;
+
+      ///////////////////////////////////////////////////////////
+
       cont.addEventListener( 'touchstart', function() {
 
       console.log("タッチしました");
+
+      if (i == 0){
+
+      audioElem.src = "pickup.wav";
+      audioElem.muted = true;
+      audioElem.play();
+
+        }else if (i == 1){
+
+      audioElem.src = "test.wav";
+      audioElem.loop = true;
+      audioElem.play();
+
+      i = 0;
+
+       }else{
+
+      audioElem.src = "test2.mp3";
+      audioElem.loop = true;
+      audioElem.play();
+
+      i = 0;
+
+        };
+
       audioElem2.src = "pickup.wav";
       audioElem2.play();
 
@@ -56,6 +85,8 @@
 
       function MyFunction1(arg) {
 
+        i = 1;
+
         console.log(arg);
         audioElem.src = "test.wav";
         audioElem.loop = true;
@@ -75,6 +106,8 @@
       /////////////////////////////////////////////////////////
 
       function MyFunction3(arg) {　
+
+        i = 2;
 
         console.log(arg);
         audioElem.src = "test2.mp3";
