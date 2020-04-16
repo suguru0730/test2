@@ -26,39 +26,13 @@
 
       cont.addEventListener( 'touchstart', function() {
 
-      console.log("タッチしました");
+      //console.log("タッチしました");
 	      
-      /*
-
-      if (i == 0){
-
-      audioElem.src = "pickup.wav";
-      audioElem.muted = true;
-      audioElem.play();
-
-        }else if (i == 1){
-
-      audioElem.src = "test.wav";
-      audioElem.muted = false;
-      audioElem.play();
-
-      i = 0;
-
-       }else{
-
-      audioElem.src = "test2.mp3";
-      audioElem.muted = false;
-      audioElem.play();
-
-      i = 0;
-
-        };
-	
-      */
       if (i == 0){
       audioElem.src = "pickup.wav";
       audioElem.muted = true;
       audioElem.play();
+      i = 1;
       }
 
       audioElem2.src = "pickup.wav";
@@ -66,39 +40,14 @@
 
       }, false );
 
-
-      /*
-
-      window.onload = function() {
-
-      var result = confirm('ログインしますか？');
- 
-      if( result ) {
- 
-      console.log('ログインします');
-      audioElem.src = "test2.mp3";
-      audioElem.loop = true;
-      audioElem.play();
- 
-      }else {
- 
-      console.log('ログインしません');
- 
-      }
-
-      };
-
-      */
-
       //////////////////////////////////////////////////////////
 
       function MyFunction1(arg) {
 
-        i = 1;
-
-        console.log(arg);
+        //console.log(arg);
         audioElem.src = "test.wav";
         audioElem.muted = false;
+	audioElem.loop = true;
         audioElem.play();
 
 	    }
@@ -107,7 +56,7 @@
 
        function MyFunction2(arg) {
 
-        console.log(arg);
+        //console.log(arg);
         audioElem.pause();
 
 	    }
@@ -116,11 +65,10 @@
 
       function MyFunction3(arg) {　
 
-        i = 2;
-
-        console.log(arg);
+        //console.log(arg);
         audioElem.src = "test2.mp3";
         audioElem.muted = false;
+	audioElem.loop = true;
         audioElem.play();
 
 	    }
